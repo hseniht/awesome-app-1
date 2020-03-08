@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/awesome-app-1/static/css/main.ddca8c7d.chunk.css",
+    "main.js": "/awesome-app-1/static/js/main.9aa8fd5e.chunk.js",
+    "main.js.map": "/awesome-app-1/static/js/main.9aa8fd5e.chunk.js.map",
+    "runtime-main.js": "/awesome-app-1/static/js/runtime-main.818243d3.js",
+    "runtime-main.js.map": "/awesome-app-1/static/js/runtime-main.818243d3.js.map",
+    "static/css/2.5a510433.chunk.css": "/awesome-app-1/static/css/2.5a510433.chunk.css",
+    "static/js/2.eb07d0c2.chunk.js": "/awesome-app-1/static/js/2.eb07d0c2.chunk.js",
+    "static/js/2.eb07d0c2.chunk.js.map": "/awesome-app-1/static/js/2.eb07d0c2.chunk.js.map",
+    "index.html": "/awesome-app-1/index.html",
+    "precache-manifest.9bff5536941aabfd4812c04479c59b09.js": "/awesome-app-1/precache-manifest.9bff5536941aabfd4812c04479c59b09.js",
+    "service-worker.js": "/awesome-app-1/service-worker.js",
+    "static/css/2.5a510433.chunk.css.map": "/awesome-app-1/static/css/2.5a510433.chunk.css.map",
+    "static/css/main.ddca8c7d.chunk.css.map": "/awesome-app-1/static/css/main.ddca8c7d.chunk.css.map",
+    "static/js/2.eb07d0c2.chunk.js.LICENSE.txt": "/awesome-app-1/static/js/2.eb07d0c2.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/awesome-app-1/static/media/minimalist-abstract-hexagon-colorful-a1949.044792f5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.818243d3.js",
+    "static/css/2.5a510433.chunk.css",
+    "static/js/2.eb07d0c2.chunk.js",
+    "static/css/main.ddca8c7d.chunk.css",
+    "static/js/main.9aa8fd5e.chunk.js"
+  ]
+}
