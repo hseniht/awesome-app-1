@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import WidgetWeather from '../addons/WidgetWeather'
 
 const Navbar = () => {
     return (
@@ -10,6 +11,8 @@ const Navbar = () => {
                  <Link to='/' className="brand-logo">My Awesome App</Link>
                 <SignedInLinks/>
                 <SignedOutLinks/>
+                {/* //widget here */}
+                <WidgetWeather/>
             </div>
         </nav>
     )

@@ -48,3 +48,33 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+
+/* === My custom css ===/ ~TODO: convert to scss*/
+
+/*my helpers */
+
+.m-0 {
+   margin: 0!important;
+}
+
+/* weather widget */
+.card-content .top-row {
+   display: flex;
+   line-height: 2;
+}
+.top-row .top-left {
+   float: left;
+   width: 50%;
+   font-size: 10px;
+}
+
+.top-row .top-right {
+   float: right;
+   width: 50%;
+   font-size: 10px;
+   text-align: right;
+}
+.card .card-title.text-location {
+   font-size: 10px;
+}
