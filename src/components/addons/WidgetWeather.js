@@ -4,7 +4,7 @@ import { sys } from 'typescript';
 // import M from 'materialize-css'; or use M in window
 
 class WidgetWeather extends Component {
-   constructor(props) {
+   constructor (props) {
       super(props);
       this.myRef = React.createRef();
       this.state = {
@@ -20,10 +20,10 @@ class WidgetWeather extends Component {
       }
    }
 
-   async componentDidMount () {
+   async componentDidMount() {
       const M = window.M;
-		// console.log("tk it mounted",window);
-		// M.AutoInit();
+      // console.log("tk it mounted",window);
+      // M.AutoInit();
 
       //js way:
       // document.addEventListener('DOMContentLoaded', function() {
@@ -40,18 +40,18 @@ class WidgetWeather extends Component {
          hoverEnabled: false
       });
 
-		let options = {
-			// inDuration: 300, 
-			// outDuration: 225,
-			alignment: "right",
+      let options = {
+         // inDuration: 300,
+         // outDuration: 225,
+         alignment: "right",
          coverTrigger: true,
          constrainWidth: false
-		};
+      };
 
       let elems = document.querySelectorAll('.dropdown-trigger');
       M.Dropdown.init(elems, options);
-      
-		
+
+
       const API_KEY = "test429736441cf3572838aa10530929f7cd";
 
       // calc kel to Celc method
@@ -78,19 +78,19 @@ class WidgetWeather extends Component {
             }
          })
          console.log("tk temp is", this.state.temperature);
-         
-         if(!weather_resp.ok) {
+
+         if (!weather_resp.ok) {
             console.log("tk weatherResp:", weather_resp.statusText); //"statusText" available when on fetch request
             throw Error(weather_resp.statusText);
          }
-      } catch(error) {
-         console.log("tk catch err ",error);
+      } catch (error) {
+         console.log("tk catch err ", error);
       }
    }
-   
-   render () {
+
+   render() {
       //api key here
-      
+
 
       //fetch pure method
       // fetch(`http://api.openweathermap.org/data/2.5/weather?q=london&appid=${API_KEY}`)
@@ -121,7 +121,7 @@ class WidgetWeather extends Component {
 
       return (
          <ul>
-            <WeatherCard/>
+            <WeatherCard />
          </ul>
       )
    }

@@ -5,17 +5,17 @@ import SignedOutLinks from './SignedOutLinks'
 import WidgetWeather from '../addons/WidgetWeather'
 
 const Navbar = () => {
-    return (
-        <nav className="nav-wrapper grey darken-3">
-            <div className="container">
-                 <Link to='/' className="brand-logo">My Awesome App</Link>
-                <SignedInLinks/>
-                <SignedOutLinks/>
-                {/* //widget here */}
-                <WidgetWeather/>
-            </div>
-        </nav>
-    )
+   return (
+      <nav className="nav-wrapper grey darken-3">
+         <div className="container">
+            <Link to='/' className="brand-logo">My Awesome App</Link>
+            <SignedInLinks />
+            <SignedOutLinks />
+            {/* //widget here */}
+            <WidgetWeather />
+         </div>
+      </nav>
+   )
 }
 
 export default Navbar;

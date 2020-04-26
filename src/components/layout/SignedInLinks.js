@@ -2,15 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const SignedInLinks = () => {
-    return (
-        <ul className="right">
+   return (
+      <div>
+         <ul className="right">
             <li><NavLink to='/create'>New Project</NavLink></li>
             <li><NavLink to='/'>Log Out</NavLink></li>
-            <li>
-            <NavLink to='/' className="btn btn-floating pink lighten-1">NN</NavLink>
-            </li>
-        </ul>
-    )
+            <li><NavLink to='/' className="btn btn-floating pink lighten-1">TK</NavLink></li>
+         </ul>
+      </div>
+   )
 }
 
 export default SignedInLinks;
