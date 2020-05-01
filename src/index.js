@@ -6,11 +6,12 @@ import * as serviceWorker from './serviceWorker';
 // import 'materialize-css/dist/css/materialize.min.css';(from node can call directly)
 import './../node_modules/materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './store/reducer/rootReducer'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(<Provider store={store} ><App /></Provider>, document.getElementById('root'));
 
