@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { sys } from 'typescript';
 // import M from '../../../node_modules/materialize-css/dist/js/materialize';
 // import M from 'materialize-css'; or use M in window
 
@@ -133,7 +132,7 @@ export default WidgetWeather;
 const WeatherCard = () => {
    return (
       <div className="card-wrapper right">
-         <a className='dropdown-trigger btn' href='#' data-target='dropdown1'>W</a>
+         <div className='dropdown-trigger btn' data-target='dropdown1'>W</div> {/*was anchor tag with href*/}
          {/* <!-- Dropdown Structure --> */}
          <ul id='dropdown1' className='dropdown-content'>
             <div className="small weather-widget">
