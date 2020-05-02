@@ -10,19 +10,33 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './store/reducer/rootReducer'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { reduxFirestore, getFirestore } from 'redux-firestore'
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
+import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore'
+import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
 import fbConfig from './config/fbConfig'
+import firebase from 'firebase/app'
 
 const store = createStore(rootReducer,
    compose( //refer thunk & compose documentation
       applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })), //1st store enhancer
-      reduxFirestore(fbConfig), //2nd
-      reactReduxFirebase(fbConfig) //3rd
+      reduxFirestore(firebase, fbConfig), //2nd
+      // reactReduxFirebase(fbConfig) //3rd.. depreciated since firebase v3
    )
 );
 
-ReactDOM.render(<Provider store={store} ><App /></Provider>, document.getElementById('root'));
+const rrfProps = {
+   firebase,
+   config: fbConfig,
+   dispatch: store.dispatch,
+   createFirestoreInstance // <- needed if using firestore
+}
+
+ReactDOM.render(
+   <Provider store={store} >
+      <ReactReduxFirebaseProvider {...rrfProps}>
+         <App />
+      </ReactReduxFirebaseProvider>
+   </Provider>
+   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
