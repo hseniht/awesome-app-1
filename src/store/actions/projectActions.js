@@ -1,9 +1,23 @@
 export const createProject = (project) => {
-   return (dispatch, getState, { getFirebase, getFireStore }) => { //3rd param from thunks' withExtraArgument
-      //make async call to database
-      dispatch({
-         type: 'CREATE_PROJECT',
-         project: project //payload
+   return (dispatch, getState, { getFirebase, getFirestore }) => { //3rd param from thunks' withExtraArgument
+      //make async call to database (basically halting the dispatch for a moment)
+      const firestore = getFirestore();
+      firestore.collection('projects').add({  //name of your collection in firebase
+         ...project, // all properties from your state
+         authorFirstName: 'Thinesh',
+         authorLastName: 'Kumar',
+         authorId: 12345,
+         createdAt: new Date()
+      }).then(() => {
+         dispatch({
+            type: 'CREATE_PROJECT',
+            project: project //payload
+         });
+      }).catch((err) => {
+         dispatch({
+            type: 'CREATE_PROJECT_ERROR',
+            err: err
+         });
       })
    }
 };
