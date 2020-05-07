@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 import WidgetWeather from '../addons/WidgetWeather'
+import { connect } from 'react-redux'
 
 const Navbar = () => {
    return (
@@ -18,4 +19,11 @@ const Navbar = () => {
    )
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+   console.log('from firebaseReducer', state);
+   return {
+      auth: state.firebase.auth
+   }
+}
+
+export default connect(mapStateToProps)(Navbar);
