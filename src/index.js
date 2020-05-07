@@ -14,6 +14,9 @@ import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-fir
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
 import fbConfig from './config/fbConfig'
 import firebase from 'firebase/app'
+import { useSelector } from 'react-redux'
+import { isLoaded } from 'react-redux-firebase'
+
 
 const store = createStore(rootReducer,
    compose( //refer thunk & compose documentation
@@ -27,13 +30,24 @@ const rrfProps = {
    firebase,
    config: fbConfig,
    dispatch: store.dispatch,
-   createFirestoreInstance // <- needed if using firestore
+   createFirestoreInstance, // <- needed if using firestore
+   userProfile: 'users', // where profiles are stored in database
+   presence: 'presence', // where list of online users is stored in database
+   sessions: 'sessions' // where list of user sessions is stored in database (presence must be enabled)
+}
+
+function AuthIsLoaded({ children }) {
+   const auth = useSelector(state => state.firebase.auth)
+   if (!isLoaded(auth)) return <div>Splash screen...</div>;
+   return children
 }
 
 ReactDOM.render(
    <Provider store={store} >
       <ReactReduxFirebaseProvider {...rrfProps}>
-         <App />
+         <AuthIsLoaded>
+            <App />
+         </AuthIsLoaded>
       </ReactReduxFirebaseProvider>
    </Provider>
    , document.getElementById('root'));

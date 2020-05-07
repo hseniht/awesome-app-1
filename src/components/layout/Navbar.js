@@ -5,13 +5,15 @@ import SignedOutLinks from './SignedOutLinks'
 import WidgetWeather from '../addons/WidgetWeather'
 import { connect } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = (props) => {
+   const { auth } = props;
+   console.log('tk auth', auth);
+   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
    return (
       <nav className="nav-wrapper grey darken-3">
          <div className="container">
             <Link to='/' className="brand-logo">My Awesome App</Link>
-            <SignedInLinks />
-            <SignedOutLinks />
+            {links}
             {/* //widget here */}
             <WidgetWeather />
          </div>
