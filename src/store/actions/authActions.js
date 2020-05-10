@@ -1,4 +1,4 @@
-import { firestore } from "firebase";
+import { firestore } from "firebase/app";
 
 export const signIn = (credentials) => {
    return (dispatch, getState, { getFirebase }) => {
@@ -26,7 +26,7 @@ export const signOut = () => {
 export const signUp = (newUser) => {
    return (dispatch, getState, { getFirebase, getFirestore }) => {//FB for new user. FS for comunicate with fs's db
       const firebase = getFirebase();
-      const fireStore = getFirestore();
+      // const fireStore = getFirestore();
 
       firebase.auth().createUserWithEmailAndPassword(
          //create new user
