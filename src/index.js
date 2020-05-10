@@ -26,9 +26,18 @@ const store = createStore(rootReducer,
    )
 );
 
+//customConfig
+const customConfig = {
+   // ...fbConfig, //now sure if needed, but just leaving it here for now
+   userProfile: 'users',
+   useFirestoreForProfile: true
+   //any other config options can be added here
+}
+
 const rrfProps = {
    firebase,
-   config: fbConfig,
+   // config: fbConfig,  //dont think we need this as we're passing it from reduxFirestore() above
+   config: customConfig,
    dispatch: store.dispatch,
    createFirestoreInstance, // <- needed if using firestore
    userProfile: 'users', // where profiles are stored in database

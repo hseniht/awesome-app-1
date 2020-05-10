@@ -38,7 +38,7 @@ export const signUp = (newUser) => {
 
          //firestore user collection on FS
          //we use '.doc()' instead of firestore's .add() to insert our own id from firebase
-         return firestore().collection('user').doc(resp.user.uid).set({ //TODO: check syntax correct? This Seems working for now
+         return firestore().collection('users').doc(resp.user.uid).set({ //TODO: check syntax correct? This Seems working for now
             //additional info that we want
             firstName: newUser.firstName,
             lastName: newUser.lastName,
