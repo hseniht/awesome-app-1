@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom'
 class Dashboard extends Component {
    render() {
       // console.log("tk stateProps", this.props);
-      const { projects, auth } = this.props; // from mapState
+      const { projects, auth, notifications } = this.props; // from mapState
       if (!auth.uid) {
          return <Redirect to='/signin' />
       }
@@ -20,7 +20,7 @@ class Dashboard extends Component {
                   <ProjectList projects={projects} />
                </div>
                <div className="col s12 m5 offset-m1">
-                  <Notifications />
+                  <Notifications notifications={notifications} />
                </div>
             </div>
          </div>
@@ -33,7 +33,8 @@ const mapStateToProps = (state) => {
    return {
       // projects: state.project.projects
       projects: state.firestore.ordered.projects,
-      auth: state.firebase.auth
+      auth: state.firebase.auth,
+      notifications: state.firestore.ordered.notifications
    }
 }
 
@@ -42,9 +43,10 @@ const mapStateToProps = (state) => {
 //HOC 2: `firestoreConnect` from react-redux-firebase.
 export default compose(
    connect(mapStateToProps),
-   firestoreConnect(() => ['projects']) // sync the collection from Firestore into redux
-   // alt way:
-   // firestoreConnect([
-   //    { collection: 'projects' }
-   // ])
+   // firestoreConnect(() => ['projects']) // sync the collection from Firestore into redux
+   // alt way passing array:
+   firestoreConnect([
+      { collection: 'projects' },
+      { collection: 'notifications', limit: 3 }
+   ])
 )(Dashboard)
