@@ -46,7 +46,7 @@ export default compose(
    // firestoreConnect(() => ['projects']) // sync the collection from Firestore into redux
    // alt way passing array:
    firestoreConnect([
-      { collection: 'projects' },
-      { collection: 'notifications', limit: 3 }
+      { collection: 'projects', orderBy: ['createdAt', 'desc'] }, //"createdAt" is the time on this collection
+      { collection: 'notifications', limit: 3, orderBy: ['time', 'desc'] } //"time" is the time on this collection
    ])
 )(Dashboard)
