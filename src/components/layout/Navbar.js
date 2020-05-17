@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
-import WidgetWeather from '../addons/WidgetWeather'
+// import WidgetWeather from '../addons/WidgetWeather'
 import { connect } from 'react-redux'
 
 const Navbar = (props) => {
@@ -15,7 +15,7 @@ const Navbar = (props) => {
             <Link to='/' className="brand-logo">My Awesome App</Link>
             {links}
             {/* //widget here */}
-            <WidgetWeather />
+            {/* <WidgetWeather /> */}
          </div>
       </nav>
    )

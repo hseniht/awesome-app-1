@@ -10,6 +10,13 @@
 
 # production
 /build
+/dist
+
+# This file is part of a new feature in Firebase Hosting
+# that minimizes the size the time of a hosting deployment
+# by only uploading the files that changed since the last deployment
+# thus ignoring this as not applicable for sharing and contribution
+.firebase
 
 # misc
 .DS_Store
