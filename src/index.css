@@ -43,6 +43,16 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: #ec407a !important;
 }
 
+/*Navbar*/
+
+.right.nav-menus li {
+   padding: 0 15px;
+}
+
+.right.nav-menus li a {
+   padding: unset;
+}
+
 
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

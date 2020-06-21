@@ -6,6 +6,7 @@ import ProjectDetails from './components/project/ProjectDetails'
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateProject from './components/project/CreateProject';
+import Profile from './components/profile/Profile';
 
 class App extends Component {
    render() {
@@ -16,10 +17,12 @@ class App extends Component {
                <Navbar />
                <Switch>
                   <Route exact path='/' component={Dashboard} />
+                  {/*id here is just an declaration. This dynamic data is passed from <Link /> tag  */}
                   <Route path='/project/:id' component={ProjectDetails} />
                   <Route path='/signin' component={SignIn} />
                   <Route path='/signup' component={SignUp} />
                   <Route path='/create' component={CreateProject} />
+                  <Route path='/profile/:userId' component={Profile} />
                </Switch>
             </div>
          </BrowserRouter>
