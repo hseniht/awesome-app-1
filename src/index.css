@@ -53,6 +53,19 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
    padding: unset;
 }
 
+/*Project/ Posts Section*/
+
+.project-list.section .personal .card {
+   margin-bottom: 0px;
+}
+
+.project-list.section .personal .card-action {
+   background-color: lightblue;
+   border-radius: 0 0 2px 2px;
+   display: flex;
+   justify-content: space-evenly;
+}
+
 
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

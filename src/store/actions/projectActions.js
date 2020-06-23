@@ -23,3 +23,24 @@ export const createProject = (project) => {
       })
    }
 };
+
+export const deleteProject = (projectId) => {
+   return (dispatch, getState, { getFirebase, getFirestore }) => { //3rd param from thunks' withExtraArgument
+      //make async call to database (basically halting the dispatch for a moment)
+      const firestore = getFirestore();
+      // const profile = getState().firebase.profile;
+      // const authorId = getState().firebase.auth.uid;
+      firestore.collection('projects').doc(projectId).delete() //id passed by componenet specifically
+         .then(() => {
+            dispatch({
+               type: 'DELETE_PROJECT',
+               project: projectId //payload
+            });
+         }).catch((err) => {
+            dispatch({
+               type: 'DELETE_PROJECT_ERROR',
+               err: err
+            });
+         })
+   }
+};
