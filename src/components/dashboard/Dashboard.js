@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Notifications from './Notifications'
 import ProjectList from '../project/ProjectList'
 import { connect } from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase'
+import { firestoreConnect } from 'react-redux-firebase' //to get firestore data on this compoenent , we need this
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 

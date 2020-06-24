@@ -44,3 +44,25 @@ export const deleteProject = (projectId) => {
          })
    }
 };
+
+export const editProject = (project, id) => {
+   return (dispatch, getState, { getFirebase, getFirestore }) => { //3rd param from thunks' withExtraArgument
+      //make async call to database (basically halting the dispatch for a moment)
+      const firestore = getFirestore();
+      firestore.collection('projects').doc(id).update({
+         title: project.title,
+         content: project.content,
+         createdAt: new Date()
+      }).then(() => {
+         dispatch({
+            type: 'EDIT_PROJECT',
+            project: project //payload
+         });
+      }).catch((err) => {
+         dispatch({
+            type: 'EDIT_PROJECT_ERROR',
+            err: err
+         });
+      })
+   }
+};

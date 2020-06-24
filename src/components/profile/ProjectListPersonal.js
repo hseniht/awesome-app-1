@@ -11,13 +11,15 @@ const WrapEditToolbar = ({ children, pId, onDeletePost }) => {
       () => {
          onDeletePost(pId)
       },
-      [pId],
+      [pId, onDeletePost],//checkback
    )
    return (
       <div className="personal">
          {children}
          <div className="card-action">
-            <div href="#">Edit</div>
+            <Link to={'/project/edit/' + pId} >
+               <div href="#">Edit</div>
+            </Link>
             <div onClick={deletePost}>Delete</div>
          </div>
       </div>
@@ -28,7 +30,7 @@ class ProjectListPersonal extends Component {
    handleDelete = (id) => {
       this.props.deleteProject(id);
       console.log("delete project Ran");
-      
+
    }
    render() {
       const { projects } = this.props;
