@@ -16,6 +16,7 @@ const Navbar = (props) => {
             {links}
             {/* //widget here */}
             {/* <WidgetWeather /> */}
+            {/* test*/}
          </div>
       </nav>
    )
